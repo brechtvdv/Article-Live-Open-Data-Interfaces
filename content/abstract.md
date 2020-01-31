@@ -1,14 +1,9 @@
 ## Abstract
-Dynamic traffic lights change their current phase duration according to the situation on the intersection, such as crowdedness. In Flanders, only the minimum and maximum duration of the current phase is published. When route planners want to reuse this data they have to predict how long the current phase will take in order to route over these traffic lights. 
-We tested for a live Open Traffic Lights dataset of Antwerp how frequency distributions of phase durations (i) can be used to predict the duration of the current phase and (ii) can be generated client-side on-the-fly with a demonstrator.
-An overall mean average error (MAE) of 5.1 seconds is reached by using the median for predictions. A distribution is created for every day with time slots of 20 minutes. This result is better than expected, because phase durations can range between a few seconds and over two minutes.
-When taking the remaining time until phase change into account, we see a MAE around 10 seconds when the remaining time is less than a minute which we still deem valuable for route planning. 
-Unfortunately, the MAE grows linear for phases longer than a minute making our prediction method useless when this occurs. 
-Based on these results, we wish to present two discussion points during the workshop.
+There are two mechanisms for publishing live changing resources on the Web: a client can pull the latest state of a resource or the server pushes updates to the client. In the state of the art, it is clear that pushing delivers a lower latency compared to pulling, however, this has not been tested for an Open Data usage scenario where 15k clients are not an exception. Also, there are no general guidelines when to use a polling or push-based approach for publishing live changing resources on the Web. We performed (i) a field report of live Open datasets on the European and U.S. Open Data portal and (ii) a benchmark between HTTP polling and Server-Sent Events (SSE) under a load of 25k clients. In this article, we compare the scalability and latency on the client of updates between polling and pushing. For the scenario where users want an update as fast as possible, we found that SSE excels above polling in three aspects: lower CPU usage on the server, lower latency on the client and more than double the number of clients that can be served. However, considering that users can perceive a certain maximum latency on the client (MAL) of an update acceptable, we describe in this article at which MAL point a polling interface can be able to serve a higher number of clients than pushing. Open Data publishers can use these insights to determine which mechanism is the most cost-effective for their live updating resources on the Web.
 
-<span class="printonly firstpagefooter">
+<!-- <span class="printonly firstpagefooter">
 <span class="footnotecopyright">
-This is a print-version of an article first written for the Web. The Web-version is available at https://brechtvdv.github.io/Article-Predicting-traffic-light-phases .                              
-Copyright © 2019 for this paper by its authors. Use permitted under Creative Commons License Attribution 4.0 International (CC BY 4.0).
+This is a print-version of an article first written for the Web. The Web-version is available at https://brechtvdv.github.io/Article-Live-Open-Data-interfaces .                              
+Copyright © 2020 for this paper by its authors. Use permitted under Creative Commons License Attribution 4.0 International (CC BY 4.0).
 </span>
-</span>
+</span> -->

@@ -1,0 +1,101 @@
+{:	data{:
+edges[[i\i{	:raw_contento:Set:
+@hash}I"/abstract.*:ETTI"/introduction.*;
+TTI"/sota.*;
+TTI"/fieldreport.*;
+TTI"/problemstatement.*;
+TTI"/benchmark.*;
+TTI"/discussion.*;
+TTI"/conclusions.*;
+TTI"/acknowledgements.*;
+TTI"/styles/katex.css;
+TTF:attributesF:compiled_contentF:	pathF[ii{	;T;F;F;F[ii{	;T;F;F;F[ii{	;T;F;F;F[ii{	;T;F;F;F[ii{	;T;F;F;F[ii{	;T;F;F;F[i
+i{	;T;F;F;F[i	i{	;T;F;F;F[ii{	;T;F;F;F[i[i{	;T;F;F;F[i\i{	;T;F;F;F[ii{	;T;F;T;F[ii{	;T;F;T;F[i\i{	;T;F;F;F[ii{	;T;F;T;F[ii{	;T;F;T;F:vertices[]0I"item:/abstract.md;
+TI"item:/acknowledgements.md;
+TI"item:/benchmark.md;
+TI"item:/conclusions.md;
+TI"item:/discussion.md;
+TI"item:/fieldreport.md;
+TI"item:/img/cloudlab.PNG;
+TI"item:/img/cpu.png;
+TI"item:/img/memory.PNG;
+TI"item:/img/memory.png;
+TI"item:/img/polling.png;
+TI"(item:/img/polling_without_cache.png;
+TI"$item:/img/pubsub_with_sleep.png;
+TI";item:/img/Retrieving latest data with HTTP polling.png;
+TI"item:/index.md.erb;
+TI"item:/introduction.md;
+TI"item:/problemstatement.md;
+TI"item:/references.bib;
+TI"item:/sota.md;
+TI"item:/styles/lncs.scss;
+TI"item:/styles/print.scss;
+TI"item:/styles/reset.scss;
+TI"item:/styles/screen.scss;
+TI"item:/styles/shared.scss;
+TI"item:/styles/katex.css;
+TI"-item:/styles/fonts/KaTeX_AMS-Regular.ttf;
+TI".item:/styles/fonts/KaTeX_AMS-Regular.woff;
+TI"/item:/styles/fonts/KaTeX_AMS-Regular.woff2;
+TI"2item:/styles/fonts/KaTeX_Caligraphic-Bold.ttf;
+TI"3item:/styles/fonts/KaTeX_Caligraphic-Bold.woff;
+TI"4item:/styles/fonts/KaTeX_Caligraphic-Bold.woff2;
+TI"5item:/styles/fonts/KaTeX_Caligraphic-Regular.ttf;
+TI"6item:/styles/fonts/KaTeX_Caligraphic-Regular.woff;
+TI"7item:/styles/fonts/KaTeX_Caligraphic-Regular.woff2;
+TI".item:/styles/fonts/KaTeX_Fraktur-Bold.ttf;
+TI"/item:/styles/fonts/KaTeX_Fraktur-Bold.woff;
+TI"0item:/styles/fonts/KaTeX_Fraktur-Bold.woff2;
+TI"1item:/styles/fonts/KaTeX_Fraktur-Regular.ttf;
+TI"2item:/styles/fonts/KaTeX_Fraktur-Regular.woff;
+TI"3item:/styles/fonts/KaTeX_Fraktur-Regular.woff2;
+TI"+item:/styles/fonts/KaTeX_Main-Bold.ttf;
+TI",item:/styles/fonts/KaTeX_Main-Bold.woff;
+TI"-item:/styles/fonts/KaTeX_Main-Bold.woff2;
+TI"1item:/styles/fonts/KaTeX_Main-BoldItalic.ttf;
+TI"2item:/styles/fonts/KaTeX_Main-BoldItalic.woff;
+TI"3item:/styles/fonts/KaTeX_Main-BoldItalic.woff2;
+TI"-item:/styles/fonts/KaTeX_Main-Italic.ttf;
+TI".item:/styles/fonts/KaTeX_Main-Italic.woff;
+TI"/item:/styles/fonts/KaTeX_Main-Italic.woff2;
+TI".item:/styles/fonts/KaTeX_Main-Regular.ttf;
+TI"/item:/styles/fonts/KaTeX_Main-Regular.woff;
+TI"0item:/styles/fonts/KaTeX_Main-Regular.woff2;
+TI"1item:/styles/fonts/KaTeX_Math-BoldItalic.ttf;
+TI"2item:/styles/fonts/KaTeX_Math-BoldItalic.woff;
+TI"3item:/styles/fonts/KaTeX_Math-BoldItalic.woff2;
+TI"-item:/styles/fonts/KaTeX_Math-Italic.ttf;
+TI".item:/styles/fonts/KaTeX_Math-Italic.woff;
+TI"/item:/styles/fonts/KaTeX_Math-Italic.woff2;
+TI"0item:/styles/fonts/KaTeX_SansSerif-Bold.ttf;
+TI"1item:/styles/fonts/KaTeX_SansSerif-Bold.woff;
+TI"2item:/styles/fonts/KaTeX_SansSerif-Bold.woff2;
+TI"2item:/styles/fonts/KaTeX_SansSerif-Italic.ttf;
+TI"3item:/styles/fonts/KaTeX_SansSerif-Italic.woff;
+TI"4item:/styles/fonts/KaTeX_SansSerif-Italic.woff2;
+TI"3item:/styles/fonts/KaTeX_SansSerif-Regular.ttf;
+TI"4item:/styles/fonts/KaTeX_SansSerif-Regular.woff;
+TI"5item:/styles/fonts/KaTeX_SansSerif-Regular.woff2;
+TI"0item:/styles/fonts/KaTeX_Script-Regular.ttf;
+TI"1item:/styles/fonts/KaTeX_Script-Regular.woff;
+TI"2item:/styles/fonts/KaTeX_Script-Regular.woff2;
+TI"/item:/styles/fonts/KaTeX_Size1-Regular.ttf;
+TI"0item:/styles/fonts/KaTeX_Size1-Regular.woff;
+TI"1item:/styles/fonts/KaTeX_Size1-Regular.woff2;
+TI"/item:/styles/fonts/KaTeX_Size2-Regular.ttf;
+TI"0item:/styles/fonts/KaTeX_Size2-Regular.woff;
+TI"1item:/styles/fonts/KaTeX_Size2-Regular.woff2;
+TI"/item:/styles/fonts/KaTeX_Size3-Regular.ttf;
+TI"0item:/styles/fonts/KaTeX_Size3-Regular.woff;
+TI"1item:/styles/fonts/KaTeX_Size3-Regular.woff2;
+TI"/item:/styles/fonts/KaTeX_Size4-Regular.ttf;
+TI"0item:/styles/fonts/KaTeX_Size4-Regular.woff;
+TI"1item:/styles/fonts/KaTeX_Size4-Regular.woff2;
+TI"4item:/styles/fonts/KaTeX_Typewriter-Regular.ttf;
+TI"5item:/styles/fonts/KaTeX_Typewriter-Regular.woff;
+TI"6item:/styles/fonts/KaTeX_Typewriter-Regular.woff2;
+TI"layout:/default.html.erb;
+TI"
+items;
+T:versioni
