@@ -1,7 +1,7 @@
 ## Problem Statement
 {:#problemstatement}
 
-In the field report, we saw that there is no strict guideline whether to use polling or pushing for a certain dataset. Based on the insights from the live Open Data field and related work, we define the following research question:
+In the field report, we saw that there is no strict guideline whether to use polling or pushing for a certain dataset. Based on the insights from the field report and related work, we define the following research question:
 
 Research question: Which kind of Web interface is best suited for publishing live Open Data in function of server cost, scalability and latency on the client?
 
