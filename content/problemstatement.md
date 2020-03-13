@@ -3,7 +3,7 @@
 
 In the field report, we saw that there is no strict guideline whether to use polling or pushing for a certain dataset. Based on the insights from the field report and related work, we define the following research question:
 
-Research question: Which kind of Web interface is best suited for publishing live Open Data in function of server-side cost, scalability and latency on the client?
+Research question: Which kind of Web interface for server to client communication is best suited for publishing live Open Data in function of server-side cost, scalability and latency on the client?
 
 Following hypotheses are defined which we’ll be answered in the discussion:
 
