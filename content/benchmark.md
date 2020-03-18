@@ -11,14 +11,14 @@
 
 **Web API** The live data is published with a server written in the Node.js Web application framework Express and exposes 2 API routes: /polling to retrieve a JSON document containing the latest value with an HTTP GET request and /sse to receive updates through an open TCP connection with Server-Sent-Events. The latter is naively implemented server-side with a for loop that pushes updates to every client. Multiple optimizations are possible (multi-threading, load balancing, etc.), but to make a fair comparison between HTTP polling and SSE we focus on having a single-threaded implementation for both approaches. By only using a for loop, all work needs to be done by the default Node.js single-threaded event loop. For HTTP polling, we use nginx as reverse proxy and enable single threading by configuring the number of worker_processes to 1. In order that nginx can handle a lot of simultaneous connections with clients, the number of worker_connections is set to 10k.
 
-**HTTP caching** Two HTTP caching components are available: one is implemented server-side using the HTTP cache of nginx, the other one at the client-side. When a client fetches the document containing the most recent update, it will first check if a non-expired copy is available in its cache ([](#sequencediagram-caching)). Web browsers have this feature enabled by default, but the Node.js clients in this benchmark need to use the [cacheable-request](https://www.npmjs.com/package/cacheable-request) NPM package to support HTTP caching. An unexpected side-effect of using nginx (version 1.17.7) is that it doesn’t dynamically update the max-age value in the Cache-Control header when returning a copy from its cache. This means that a cached copy with a time-to-live of 1s will still have a max-age of 5s which leads into extra client-side caching for 5s instead of 1s. To circumvent this behaviour in our benchmark, we also added the Expires header which indicates when the document is expired. This requires that the clocks of the server and clients are synchronized which is the case for the testbed we used. For future work, we suggest to use Varnish as reverse proxy which dynamically updates the Cache-Control header. In [](#sequencediagram-caching), we see that the client makes a request to nginx when its cache is expired. When nginx’s cache is also expired, then  only the first request will be let through (proxy_cache_lock on) to retrieve the document from the back-end server over a persistent keep-alive connection that is configured. Other requests need to wait until nginx received the response and then pull from the updated cache. The max-age value is calculated by subtracting the time that is already passed (the current time - the time the last update is generated) from the frequency a new update is generated (5000ms). The Expires header is calculated by adding the update frequency to the time of the last update. Finally, nginx removes the Cache-Control header which obliges the client to use the Expires header for the correct timing of its cache.
+**HTTP caching** Two HTTP caching components are available: one is implemented server-side using the HTTP cache of nginx, the other one at the client-side. When a client fetches the document containing the most recent update, it will first check if a non-expired copy is available in its cache ([](#sequencediagram-caching)). Web browsers have this feature enabled by default, but the Node.js clients in this benchmark need to use the [cacheable-request](https://www.npmjs.com/package/cacheable-request) NPM package to support HTTP caching. An unexpected side-effect of using nginx (version 1.17.7) is that it does not dynamically update the max-age value in the Cache-Control header when returning a copy from its cache. This means that a cached copy with a time-to-live of 1s will still have a max-age of 5s which leads into extra client-side caching for 5s instead of 1s. To circumvent this behaviour in our benchmark, we also added the Expires header which indicates when the document is expired. This requires that the clocks of the server and clients are synchronized which is the case for the testbed we used. For future work, we suggest to use Varnish as reverse proxy which dynamically updates the Cache-Control header. In [](#sequencediagram-caching), we see that the client makes a request to nginx when its cache is expired. When nginx’s cache is also expired, then  only the first request will be let through (proxy_cache_lock on) to retrieve the document from the back-end server over a persistent keep-alive connection that is configured. Other requests need to wait until nginx received the response and then pull from the updated cache. The max-age value is calculated by subtracting the time that is already passed (the current time - the time the last update is generated) from the frequency a new update is generated (5000ms). The Expires header is calculated by adding the update frequency to the time of the last update. Finally, nginx removes the Cache-Control header which obliges the client to use the Expires header for the correct timing of its cache.
 
 <figure id="sequencediagram-caching" style="display:flex; flex-wrap:wrap">
 <center>
 <img src="img/Retrieving latest data with HTTP polling.png" width="399px" style="min-width: 50%; flex:1; border: none; box-shadow: none;">
 </center>
 <figcaption markdown="block">
-Two cache components (client-side and server-side/nginx) are used for HTTP polling. As Nginx doesn’t dynamically update the max-age value from the Cache-Control header, we fall back on the Expires header for client-side caching.
+Two cache components (client-side and server-side/nginx) are used for HTTP polling. As Nginx does not dynamically update the max-age value from the Cache-Control header, we fall back on the Expires header for client-side caching.
 </figcaption>
 </figure>
 
@@ -48,8 +48,7 @@ Latency on the client with polling without using nginx. The server is able to an
 <img src="img/polling.png" width="399px" style="min-width: 50%; flex:1; border: none; box-shadow: none;">
 <img src="img/pubsub_with_sleep.png" width="399px" style="min-width: 50%; flex:1; border: none; box-shadow: none;">
 <figcaption markdown="block">
-Latency on the client with polling (Fig. 3.1) and Server-Sent Events (Fig. 3.2). The latency on the client is similarly to polling without nginx ([](#latency-polling-without-nginx)) for 100 and 1000 clients.
-Right figure (Fig. 3.2): The latency on the client increases with a Server-Sent Events interface up to 4s for 25k clients.
+Latency on the client with polling (Fig. 3.1) and Server-Sent Events (Fig. 3.2). Polling scales up to 8k clients, while Server-Sent Events can serve 25k clients.
 </figcaption>
 </figure>
 
@@ -63,8 +62,9 @@ Right figure (Fig. 3.2): The latency on the client increases with a Server-Sent 
 
 <img src="img/memory.png" width="399px" style="min-width: 50%; flex:1; border: none; box-shadow: none;" >
 
-<figcaption >
-	Left figure (Fig. 4.1): SSE uses less milliCPU than polling. As baseline, polling without the use of nginx as caching layer shows a much steeper curve.
-	Right figure (Fig. 4.2): Polling has a low memory footprint (<100 MiB), while SSE needs to keep every client connection continuously in memory.
+<figcaption>
+	CPU and memory usage of polling and Server-Sent Events.
+	Left figure (Fig. 4.1), we see that SSE uses less milliCPU than polling.
+	Right figure (Fig. 4.2): polling has a low memory footprint (<100 MiB), while SSE needs to keep every client connection continuously in memory.
 </figcaption>
 </figure>
